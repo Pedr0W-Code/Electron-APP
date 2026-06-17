@@ -1,0 +1,20 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "better-sqlite3": "^12.10.0",
+    "electron": "^41.7.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^3.2.9"
+  }
+}

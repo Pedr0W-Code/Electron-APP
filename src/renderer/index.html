@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Electron App</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+    <nav id="mainNav" class="main-nav">
+        <button id="navHomeBtn" class="nav-card">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 10L12 3L21 10V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V10Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 21V12H15V21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="nav-label">Home</span>
+        </button>
+        <button id="navNotesBtn" class="nav-card">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 4H14L18 8V20C18 21.1046 17.1046 22 16 22H6C4.89543 22 4 21.1046 4 20V6C4 4.89543 4.89543 4 6 4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 4V8H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M8 16H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </span>
+            <span class="nav-label">Notas</span>
+        </button>
+        <button id="navStudentsBtn" class="nav-card">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="nav-label">Alunos</span>
+        </button>
+        <button id="navDisciplinasBtn" class="nav-card">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4 10H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4 14H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+            </span>
+            <span class="nav-label">Disciplinas</span>
+        </button>
+        <button id="navProfessoresBtn" class="nav-card">
+            <span class="nav-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 12C13.933 12 15.5 10.433 15.5 8.5C15.5 6.567 13.933 5 12 5C10.067 5 8.5 6.567 8.5 8.5C8.5 10.433 10.067 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="nav-label">Professores</span>
+        </button>
+    </nav>
+
+    <!-- ==================== HOME VIEW ==================== -->
+    <div id="homeView" class="view">
+        <div class="home-hero">
+            <img src="../../assets/isla.png" alt="Isla" />
+        </div>
+        <div class="home-buttons">
+            <button id="ViewNotes" class="home-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 4H14L18 8V20C18 21.1046 17.1046 22 16 22H6C4.89543 22 4 21.1046 4 20V6C4 4.89543 4.89543 4 6 4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 4V8H18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 12H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M8 16H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="card-title">Notas</div>
+                <div class="card-subtitle">Visualizar e gerir notas</div>
+            </button>
+            <button id="ViewStudents" class="home-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 20C4 16.6863 6.68629 14 10 14H14C17.3137 14 20 16.6863 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="card-title">Alunos</div>
+                <div class="card-subtitle">Gerir alunos</div>
+            </button>
+            <button id="ViewDisciplinas" class="home-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M4 10H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M4 14H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                        <path d="M4 18H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="card-title">Disciplinas</div>
+                <div class="card-subtitle">Gerir disciplinas</div>
+            </button>
+            <button id="ViewProfessores" class="home-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C13.933 12 15.5 10.433 15.5 8.5C15.5 6.567 13.933 5 12 5C10.067 5 8.5 6.567 8.5 8.5C8.5 10.433 10.067 12 12 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 20C4 17.2386 6.23858 15 9 15H15C17.7614 15 20 17.2386 20 20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="card-title">Professores</div>
+                <div class="card-subtitle">Gerir professores</div>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ==================== NOTAS ==================== -->
+
+    <!-- Adicionar Nota -->
+    <div id="addView" class="view">
+        <h1>Nova Nota</h1>
+        <p>Nome:</p>
+        <div class="autocomplete">
+            <input id="name" class="notas" autocomplete="off" placeholder="Nome">
+            <div id="nameSuggestions" class="autocomplete-list"></div>
+        </div>
+        <p>Disciplina:</p>
+        <div class="autocomplete">
+            <input id="disciplinaInput" class="notas" autocomplete="off" placeholder="Disciplina">
+            <div id="disciplinaSuggestions" class="autocomplete-list"></div>
+        </div>
+        <p>Nota:</p>
+        <input id="nota" class="notas" type="number" placeholder="Nota">
+        <p>Feito</p>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+        </label>
+        
+        <div class="btn-container">
+            <button id="saveBtn" class="btn-save">Guardar</button>
+            <button id="backBtn" class="btn-back">Voltar</button>
+        </div>    
+    </div>
+
+    <!-- Editar Nota -->
+    <div id="editNoteView" class="view">
+        <h1>Editar Nota</h1>
+        <p>Nome:</p>
+        <div class="autocomplete">
+            <input id="editName" class="notas" autocomplete="off" placeholder="Nome">
+            <div id="editNameSuggestions" class="autocomplete-list"></div>
+        </div>
+        <p>Disciplina:</p>
+        <div class="autocomplete">
+            <input id="editDisciplina" class="notas" autocomplete="off" placeholder="Disciplina">
+            <div id="editDisciplinaSuggestions" class="autocomplete-list"></div>
+        </div>
+        <p>Nota:</p>
+        <input id="editNota" class="notas" type="number" placeholder="Nota">
+        <p>Feito</p>
+        <label class="switch">
+            <input type="checkbox" id="editFeitoCheckbox">
+            <span class="slider"></span>
+        </label>
+        
+        <div class="btn-container">
+            <button id="saveEditBtn" class="btn-save">Atualizar</button>
+            <button id="backFromEditNote" class="btn-back">Voltar</button>
+        </div>    
+    </div>
+
+    <!-- Ver Notas -->
+    <div id="viewNotes" class="view">
+        <h1>Notas</h1>
+        <div class="students-search notas-search">
+            <select id="notesSearchField">
+                <option value="name">Nome</option>
+                <option value="disciplina">Disciplina</option>
+                <option value="nota">Nota</option>
+                <option value="feito">Feito</option>
+            </select>
+            <input id="notesSearchInput" placeholder="Pesquisar...">
+            <button id="notesSearchBtn" class="btn-add">Pesquisar</button>
+            <button id="notesClearSearch" class="btn-back">Limpar</button>
+        </div>
+        <button id="AddNotesFromView" class="btn-add">Adicionar Nota</button>
+        <table id="notesList" border="1">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Disciplina</th>
+                    <th>Nota</th>
+                    <th>Feito</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="notesBody"></tbody>
+        </table>
+        <button id="backBtn" class="btn-back">Voltar</button>
+    </div>
+
+
+    <!-- ==================== DISCIPLINAS ==================== -->
+
+    <!-- Adicionar Disciplina -->
+    <div id="addDisciplinaView" class="view">
+        <h1>Adicionar Disciplina</h1>
+        <p>Nome:</p>
+        <input id="disciplinaNome" class="notas" placeholder="Nome da Disciplina">
+        <p>Código:</p>
+        <input id="disciplinaCodigo" class="notas" placeholder="Código da Disciplina">
+        <p>Professor:</p>
+        <input id="disciplinaProfessor" class="notas" placeholder="Professor">
+        <div class="btn-container">
+            <button id="saveDisciplinaBtn" class="btn-save">Guardar</button>
+            <button id="backFromAddDisciplina" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Editar Disciplina -->
+    <div id="editDisciplinaView" class="view">
+        <h1>Editar Disciplina</h1>
+        <p>Nome:</p>
+        <input id="editDisciplinaNome" class="notas" placeholder="Nome da Disciplina">
+        <p>Código:</p>
+        <input id="editDisciplinaCodigo" class="notas" placeholder="Código da Disciplina">
+        <p>Professor:</p>
+        <div class="autocomplete">
+            <input id="editDisciplinaProfessor" class="notas" autocomplete="off" placeholder="Professor">
+            <div id="editDisciplinaProfessorSuggestions" class="autocomplete-list"></div>
+        </div>
+        <div class="btn-container">
+            <button id="saveEditDisciplinaBtn" class="btn-save">Atualizar</button>
+            <button id="backFromEditDisciplina" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Ver Disciplinas -->
+    <div id="disciplinas" class="view">
+        <h1>Disciplinas</h1>
+        <div class="students-search disciplinas-search">
+            <select id="disciplinasSearchField">
+                <option value="nome">Nome</option>
+                <option value="codigo">Código</option>
+                <option value="professor">Professor</option>
+            </select>
+            <input id="disciplinasSearchInput" placeholder="Pesquisar...">
+            <button id="disciplinasSearchBtn" class="btn-add">Pesquisar</button>
+            <button id="disciplinasClearSearch" class="btn-back">Limpar</button>
+        </div>
+        <button id="addDisciplinaBtn" class="btn-add">Adicionar Disciplina</button>
+        <table id="disciplinasList" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Código</th>
+                    <th>Professor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="disciplinasBody"></tbody>
+        </table>
+        <div class="pagination" id="disciplinasPagination">
+            <div class="page-controls">
+                <button id="disciplinasPrev" class="btn-back">Anterior</button>
+                <span id="disciplinasPageInfo">Página 1</span>
+                <button id="disciplinasNext" class="btn-back">Próxima</button>
+            </div>
+            <button id="backFromDisciplinas" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+
+    <!-- ==================== ALUNOS ==================== -->
+
+    <!-- Adicionar Aluno -->
+    <div id="addStudentView" class="view">
+        <h1>Adicionar Aluno</h1>
+        <p>Nome:</p>
+        <input id="studentName" class="notas" placeholder="Nome do Aluno">
+        <p>Email:</p>
+        <input id="studentEmail" class="notas" placeholder="Email">
+        <p>Telefone:</p>
+        <input id="studentPhone" class="notas" placeholder="Telefone">
+        
+        <div class="btn-container">
+            <button id="saveStudentBtn" class="btn-save">Guardar</button>
+            <button id="backFromAddStudent" class="btn-back">Voltar</button>
+        </div>    
+    </div>
+
+    <!-- Editar Aluno -->
+    <div id="editStudentView" class="view">
+        <h1>Editar Aluno</h1>
+        <p>Nome:</p>
+        <div class="autocomplete">
+            <input id="editStudentName" class="notas" autocomplete="off" placeholder="Nome do Aluno">
+            <div id="editStudentNameSuggestions" class="autocomplete-list"></div>
+        </div>
+        <p>Email:</p>
+        <input id="editStudentEmail" class="notas" placeholder="Email">
+        <p>Telefone:</p>
+        <input id="editStudentPhone" class="notas" placeholder="Telefone">
+        <div class="btn-container">
+            <button id="saveEditStudentBtn" class="btn-save">Atualizar</button>
+            <button id="backFromEditStudent" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Ver Alunos -->
+    <div id="students" class="view">
+        <h1>Alunos</h1>
+        <div class="students-search">
+            <select id="studentsSearchField">
+                <option value="nome">Nome</option>
+                <option value="telefone">Telefone</option>
+                <option value="id">ID</option>
+            </select>
+            <input id="studentsSearchInput" placeholder="Pesquisar...">
+            <button id="studentsSearchBtn" class="btn-add">Pesquisar</button>
+            <button id="studentsClearSearch" class="btn-back">Limpar</button>
+        </div>
+        <button id="addStudentBtn" class="btn-add">Adicionar Aluno</button>
+        <table id="studentsList" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="studentsBody">
+            </tbody>
+        </table>
+        <div class="pagination" id="studentsPagination">
+            <div class="page-controls">
+                <button id="studentsPrev" class="btn-back">Anterior</button>
+                <span id="studentsPageInfo">Página 1</span>
+                <button id="studentsNext" class="btn-back">Próxima</button>
+            </div>
+            <button id="backBtn" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+
+    <!-- ==================== PROFESSORES ==================== -->
+
+    <!-- Adicionar Professor -->
+    <div id="addProfessorView" class="view">
+        <h1>Adicionar Professor</h1>
+        <p>Nome:</p>
+        <input id="professorNome" class="notas" placeholder="Nome do Professor">
+        <p>Email:</p>
+        <input id="professorEmail" class="notas" placeholder="Email">
+        <p>Telefone:</p>
+        <input id="professorTelefone" class="notas" placeholder="Telefone">
+        <div class="btn-container">
+            <button id="saveProfessorBtn" class="btn-save">Guardar</button>
+            <button id="backFromAddProfessor" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Editar Professor -->
+    <div id="editProfessorView" class="view">
+        <h1>Editar Professor</h1>
+        <p>Nome:</p>
+        <input id="editProfessorName" class="notas" placeholder="Nome do Professor">
+        <p>Email:</p>
+        <input id="editProfessorEmail" class="notas" placeholder="Email">
+        <p>Telefone:</p>
+        <input id="editProfessorPhone" class="notas" placeholder="Telefone">
+        <div class="btn-container">
+            <button id="saveEditProfessorBtn" class="btn-save">Atualizar</button>
+            <button id="backFromEditProfessor" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <!-- Ver Professores -->
+    <div id="professores" class="view">
+        <h1>Professores</h1>
+        <div class="students-search professores-search">
+            <select id="professoresSearchField">
+                <option value="nome">Nome</option>
+                <option value="telefone">Telefone</option>
+                <option value="id">ID</option>
+            </select>
+            <input id="professoresSearchInput" placeholder="Pesquisar...">
+            <button id="professoresSearchBtn" class="btn-add">Pesquisar</button>
+            <button id="professoresClearSearch" class="btn-back">Limpar</button>
+        </div>
+        <button id="addProfessorBtn" class="btn-add">Adicionar Professor</button>
+        <table id="professoresList" border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="professoresBody"></tbody>
+        </table>
+        <div class="pagination" id="professoresPagination">
+            <div class="page-controls">
+                <button id="professoresPrev" class="btn-back">Anterior</button>
+                <span id="professoresPageInfo">Página 1</span>
+                <button id="professoresNext" class="btn-back">Próxima</button>
+            </div>
+            <button id="backFromProfessores" class="btn-back">Voltar</button>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

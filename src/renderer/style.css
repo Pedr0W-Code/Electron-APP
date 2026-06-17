@@ -1,0 +1,642 @@
+body {
+    font-family: Arial, sans-serif;
+  padding: 12px 20px;
+  margin: 0;
+  background: #fbfbfd;
+}
+
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+.notas {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.autocomplete-list {
+  position: absolute;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #d7d7ea;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(38, 16, 83, 0.08);
+  margin-top: 6px;
+  z-index: 20;
+  display: none;
+}
+
+.autocomplete-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.2s ease;
+}
+
+.autocomplete-item:hover {
+  background: #f5f3ff;
+}
+
+.autocomplete-item.empty {
+  cursor: default;
+  color: #777;
+}
+
+.autocomplete-meta {
+  font-size: 13px;
+  color: #666;
+}
+
+/* General layout for views */
+.view {
+  padding: 20px;
+}
+
+.main-nav {
+  display: none;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 18px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.main-nav.active {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.nav-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e8e5f8;
+  border-radius: 16px;
+  padding: 12px 16px;
+  min-height: 64px;
+  color: #1f1f38;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+}
+
+.nav-card:hover {
+  transform: translateY(-1px);
+  border-color: #8a68f4;
+  box-shadow: 0 18px 30px rgba(79, 42, 224, 0.12);
+}
+
+.nav-card:focus-visible {
+  outline: 2px solid rgba(95, 54, 235, 0.35);
+  outline-offset: 2px;
+}
+
+.nav-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: #f4efff;
+  color: #5b3bd6;
+  flex-shrink: 0;
+}
+
+.nav-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.nav-label {
+  font-weight: 700;
+}
+
+.home-hero {
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto 20px auto;
+}
+
+.home-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 14px 32px rgba(11, 32, 93, 0.12);
+}
+
+.home-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 140px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid #e7e5f7;
+  background: white;
+  color: #1f1f38;
+  text-align: left;
+  box-shadow: 0 14px 30px rgba(64, 37, 150, 0.08);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  border-color: #8a68f4;
+  box-shadow: 0 18px 36px rgba(79, 42, 224, 0.12);
+}
+
+.card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #f4efff;
+  color: #5b3bd6;
+  margin-bottom: 18px;
+}
+
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  color: #6a6a85;
+}
+
+.home-buttons .btn-add {
+  width: 100%;
+}
+
+.container-centered {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btn-save,
+.btn-back,
+.btn-add {
+  min-width: 110px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-save {
+  background: linear-gradient(90deg,#4f2ae0,#7a3bd8);
+  box-shadow: 0 6px 14px rgba(79,42,224,0.18);
+  font-weight: 600;
+}
+
+.btn-back {
+  background: #5b3bd6;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-add {
+  padding: 10px 16px;
+  background: linear-gradient(90deg,#5b3bd6,#4f2ae0);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-action {
+  min-width: 52px;
+  width: auto;
+  padding: 6px 10px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.table-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+td.table-actions-cell {
+  width: 1%;
+  white-space: nowrap;
+  max-width: 140px;
+}
+
+.btn-delete {
+  background: #de3c49;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+.btn-edit {
+  background: #5b3bd6;
+  border: none;
+  border-radius: 8px;
+  color: white;
+}
+
+
+/* Slider / Switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-bottom: 15px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+/* ON state */
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Students table styles */
+#students {
+  padding: 10px 0 0px 0;
+}
+
+#students h1 {
+  margin: 0 0 12px 0;
+}
+
+.students-search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.students-search select {
+  flex: 0 0 140px;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 1px solid #d7d7ea;
+  border-radius: 8px;
+  background: white;
+  font-size: 15px;
+  color: #1f1f38;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.students-search input {
+  flex: 1;
+  min-width: 120px;
+  padding: 10px 12px;
+  border: 1px solid #d7d7ea;
+  border-radius: 8px;
+  background: white;
+  font-size: 15px;
+  color: #1f1f38;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.students-search select:hover,
+.students-search input:hover,
+.students-search select:focus,
+.students-search input:focus {
+  border-color: #7a3bd8;
+  box-shadow: 0 0 0 3px rgba(123, 59, 216, 0.1);
+}
+
+.students-search button {
+  min-width: 110px;
+}
+
+#addStudentBtn {
+  margin-bottom: 12px;
+}
+
+#studentsList {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#studentsList th, #studentsList td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9e9ef;
+}
+
+#studentsList thead th {
+  background: linear-gradient(90deg,#f3f4ff,#efe9ff);
+  font-weight: 700;
+}
+
+#studentsList tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+#studentsList tbody tr:nth-child(odd) {
+  background: #fbfbfd;
+}
+
+#studentsPagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+#viewNotes {
+  padding: 10px 0 0 0;
+}
+
+#viewNotes h1 {
+  margin: 0 0 12px 0;
+}
+
+#viewNotes .students-search {
+  margin-bottom: 14px;
+}
+
+#AddNotesFromView {
+  margin-bottom: 14px;
+}
+
+#notesList {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+
+#notesList th, #notesList td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9e9ef;
+}
+
+#notesList thead th {
+  background: linear-gradient(90deg,#f3f4ff,#efe9ff);
+  font-weight: 700;
+}
+
+#notesList tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+#notesList tbody tr:nth-child(odd) {
+  background: #fbfbfd;
+}
+
+#notesList td {
+  vertical-align: middle;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.status.done {
+  background: #e6f9ec;
+  color: #1f8a3f;
+}
+
+.status.not-done {
+  background: #ffe6e9;
+  color: #d12b35;
+}
+
+#AddNotesFromView {
+  margin-bottom: 12px;
+}
+
+#viewNotes .btn-back {
+  margin-top: 0px;
+}
+
+#viewNotes .btn-back {
+  margin-top: 0px;
+}
+
+#disciplinas {
+  padding: 10px 0 0 0;
+}
+
+#disciplinas h1 {
+  margin: 0 0 12px 0;
+}
+
+#addDisciplinaBtn {
+  margin-bottom: 12px;
+}
+
+#disciplinasList {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#disciplinasList th, #disciplinasList td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9e9ef;
+}
+
+#disciplinasList thead th {
+  background: linear-gradient(90deg,#f3f4ff,#efe9ff);
+  font-weight: 700;
+}
+
+#disciplinasList tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+#disciplinasList tbody tr:nth-child(odd) {
+  background: #fbfbfd;
+}
+
+#disciplinasPagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+#professores {
+  padding: 10px 0 0 0;
+}
+
+#professores h1 {
+  margin: 0 0 12px 0;
+}
+
+#addProfessorBtn {
+  margin-bottom: 12px;
+}
+
+#professoresList {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+#professoresList th, #professoresList td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e9e9ef;
+}
+
+#professoresList thead th {
+  background: linear-gradient(90deg,#f3f4ff,#efe9ff);
+  font-weight: 700;
+}
+
+#professoresList tbody tr:nth-child(even) {
+  background: #ffffff;
+}
+
+#professoresList tbody tr:nth-child(odd) {
+  background: #fbfbfd;
+}
+
+#professoresPagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+#addProfessorView .btn-save,
+#addProfessorView .btn-back,
+#addDisciplinaView .btn-save,
+#addDisciplinaView .btn-back {
+  padding: 14px 20px;
+}
+#studentsPagination .page-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#studentsPagination button {
+  padding: 10px 16px;
+  min-width: 110px;
+}
+
+/* Responsive small screens */
+@media (max-width: 600px) {
+  #studentsList thead { display: none; }
+  #studentsList, #studentsList tbody, #studentsList tr, #studentsList td { display: block; width: 100%; }
+  #studentsList tr { margin-bottom: 12px; }
+  #studentsList td { text-align: right; padding-left: 50%; position: relative; }
+  #studentsList td::before { content: attr(data-label); position: absolute; left: 12px; width: 45%; text-align: left; font-weight: 600; }
+}
